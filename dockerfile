@@ -10,5 +10,5 @@ RUN poetry shell
 RUN poetry install --no-interaction --no-ansi
 
 EXPOSE 8000
-CMD poetry run uvicorn --host 0.0.0.0 diytraining.app:app
+CMD poetry run uvicorn --host 0.0.0.0 src.diytraining.app:app
 # CMD poetry run fastapi dev src/fast_zero/app.py --host 0.0.0.0

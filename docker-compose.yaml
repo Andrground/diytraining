@@ -14,6 +14,8 @@ services:
 
   diytraining_app:
     image: diytraining_app
+    volumes:
+      - './:/app'
     # entrypoint: ./entrypoint.sh
     build: .
     ports:
@@ -22,6 +24,7 @@ services:
       - diytraining_database
     environment:
       DATABASE_URL: postgresql+psycopg://app_user:app_password@diytraining_database:5432/app_db
+    
 
 volumes:
   pgdata:
