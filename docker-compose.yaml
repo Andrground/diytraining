@@ -11,12 +11,16 @@ services:
       POSTGRES_PASSWORD: app_password
     ports:
       - "5432:5432"
+    networks:
+      - diytraining  # ← add this line
 
   diytraining_app:
     image: diytraining_app
+    networks:
+      - diytraining
     volumes:
       - './:/app'
-    # entrypoint: ./entrypoint.sh
+    entrypoint: ./entrypoint.sh
     build: .
     ports:
       - "8000:8000"
@@ -24,7 +28,10 @@ services:
       - diytraining_database
     environment:
       DATABASE_URL: postgresql+psycopg://app_user:app_password@diytraining_database:5432/app_db
-    
 
 volumes:
   pgdata:
+
+networks:
+  diytraining:
+    external: false

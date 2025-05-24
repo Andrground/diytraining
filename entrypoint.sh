@@ -4,4 +4,4 @@
 poetry run alembic upgrade head
 
 # Inicia a aplicação
-poetry run fastapi dev src/fast_zero/app.py --host 0.0.0.0
+poetry run fastapi dev src/diytraining/app.py --host 0.0.0.0
